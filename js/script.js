@@ -5,7 +5,7 @@ const getHandlerButton = document.getElementsByClassName('handler_btn');
 const getScreenButton = document.querySelector('.screen-btn');
 const getItemsWithPercent = document.querySelectorAll('.other-items.percent');
 const getItemsWithNumber = document.querySelectorAll('.other-items.number');
-const getInputWithRange = document.querySelector('[type=range]');
+const getInputWithRange = document.querySelector('.rollback [type=range]');
 const getSpanInRollback = document.querySelector('.rollback .range-value');
 const getTotalInput = document.getElementsByClassName('total-input');
 
@@ -15,7 +15,7 @@ const getTotalInput = document.getElementsByClassName('total-input');
 
 
 let getScreens = document.querySelectorAll('.screen');
-console.log(getScreens)
+console.log(getInputWithRange)
 
 // const appData = {
 //     title: '',
