@@ -8,9 +8,11 @@ const getItemsWithNumber = document.querySelectorAll('.other-items.number');
 const getInputWithRange = document.querySelector('[type=range]');
 const getSpanInRollback = document.querySelector('.rollback .range-value');
 const getTotalInput = document.getElementsByClassName('total-input');
-// for (let i = 0; i < 5; i++) {
-//     console.log(getTotalInput[i]);
-// }
+
+// inputs.forEach(function() {
+//     console.log(getTotalInput[i]); 
+// });
+
 
 let getScreens = document.querySelectorAll('.screen');
 console.log(getScreens)
