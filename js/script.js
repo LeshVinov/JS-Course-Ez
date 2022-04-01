@@ -36,7 +36,7 @@ const appData = {
     init: function() {
         appData.addTitle()
 
-        startBtn.addEventListener('click', appData.start)
+        startBtn.addEventListener('click', appData.buttonBlock)
         buttonPlus.addEventListener('click', appData.addScreenBlock)
     },
     addTitle: function () {
@@ -52,34 +52,21 @@ const appData = {
         // appData.logger()
         appData.showResult()
     },
-
+    buttonBlock: () => {
+        let input
+        let select
+        screens = document.querySelectorAll('.screen')
+        screens.forEach(screen => {
+            input = screen.querySelector('input')
+            select = screen.querySelector('select')
+        })
+        if (select.selectedIndex == 0 || input.value == 0 || input.value == '') {
+            appData.init()
+        } else {
+            appData.start()
+        }
+    },
     checkingForMistakes: function() {
-        // console.log(select.value, input.value)
-        // if (select.value === '' && input.value === '') {
-        //     startBtn.disabled = false
-        // } else {
-        //     startBtn.disabled = true
-        // }
-
-        // screens = document.querySelectorAll('.screen')
-
-        // screens.forEach(screen => {
-        //     const select = screen.querySelector('select')
-        //     const input = screen.querySelector('input')
-
-        //     // console.log(select.value, input.value)
-
-        //     startBtn.addEventListener('click', function() {
-        //         if (select.value === '' && input.value === '') {
-        //             startBtn.disabled = false
-        //         } else {
-        //             startBtn.disabled = true
-        //         }
-        //     })
-        // })
-
-
-
         const changing = function(event) {
             inputRangeValue.textContent = event.target.value + '%'
             appData.rollback = event.target.value
@@ -98,6 +85,7 @@ const appData = {
         totalCount.value = screenCount
     },
     addScreens: function() {
+        appData.screens.length = 0 
         screens = document.querySelectorAll('.screen')
 
         screens.forEach(function (screen, index) {
@@ -112,6 +100,7 @@ const appData = {
             });
 
         })
+        console.log(appData.screens);
 
     },
     addServices: function() {
