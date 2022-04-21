@@ -19,7 +19,10 @@ const menu = () => {
         } else if (e.target == document.querySelector('main > a > img')) {
             e.preventDefault()
             serviceBlock.scrollIntoView({block: "start", behavior: "smooth"});
+        } else if (!e.target.closest('.active-menu')) {
+            handleMenu()
         }
+
     })
 
 }
