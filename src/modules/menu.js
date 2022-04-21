@@ -1,16 +1,27 @@
 const menu = () => {
-    const menuBtn = document.querySelector('.menu')
     const menu = document.querySelector('menu')
-    const closeBtn = menu.querySelector('.close-btn')
-    const menuItems = menu.querySelectorAll('ul>li>a')
+    const serviceBlock = document.getElementById('service-block')
 
     const handleMenu = () => {
         menu.classList.toggle('active-menu')
     }
+    
+    document.addEventListener('click', (e) => {
+        if (e.target.closest('.close-btn')) {
+            handleMenu()
+        } else if (e.target.closest('ul>li>a')) {
+             e.preventDefault()
+             let anchor = document.querySelector(e.target.hash)
+             anchor.scrollIntoView({block: "start", behavior: "smooth"});
+             handleMenu()
+        } else if (e.target.closest('.menu')) {
+            handleMenu()
+        } else if (e.target == document.querySelector('main > a > img')) {
+            e.preventDefault()
+            serviceBlock.scrollIntoView({block: "start", behavior: "smooth"});
+        }
+    })
 
-    menuBtn.addEventListener('click', handleMenu)
-    closeBtn.addEventListener('click' , handleMenu)
-    menuItems.forEach(menuItem => menuItem.addEventListener('click', handleMenu))
 }
 
 export default menu

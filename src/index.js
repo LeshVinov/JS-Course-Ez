@@ -3,7 +3,6 @@ import menu from './modules/menu'
 import modal from './modules/modal'
 import calculator from './modules/calculator'
 import formValidate from './modules/formValidate'
-import smoothDwnBtn from './modules/smoothDwnBtn'
 import tabs from './modules/tabs'
 
 
@@ -12,5 +11,4 @@ menu()
 modal()
 calculator()
 formValidate()
-smoothDwnBtn()
 tabs()
