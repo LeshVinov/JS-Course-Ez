@@ -2,7 +2,11 @@ const slider = () => {
     const sliderBlock = document.querySelector('.portfolio-content')
     const slides = document.querySelectorAll('.portfolio-item')
     const dots = document.querySelectorAll('.dot')
+    // const portfolioContent = document.querySelector('.portfolio-content')
+    // const portfolioItem = document.querySelector('.portfolio-item')
     const timeInterval = 3500
+
+    // console.log(portfolioContent);
 
     let currentSlide = 0
     let interval 
@@ -39,6 +43,7 @@ const slider = () => {
 
     sliderBlock.addEventListener('click', (e) => {
         e.preventDefault()
+
 
         if (!e.target.matches('.dot, .portfolio-btn')) {
             return
