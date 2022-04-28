@@ -14,26 +14,32 @@ const sendForm = ({ formId, someElem = [] }) => {
 
     const validate = (formElements) => {
         let success = true
-        // console.log(formElements);
-        // formElements.forEach(e => {
-        //     console.log(e.target);
-            // if (e.target.classList.contains('form-name')) {
-            //     if (!inputName.value.match(/[^а-яА-Я\-\s]/g)) {
-            //         success = false
-            //     }
-            // }
-            // if (e.target.classList.contains('form-name')) {
-            //     if (!inputName.value.match(/[^а-яА-Я\-\s]/g)) {
-            //         success = false
-            //     }
-            // }
-            // if (e.target.classList.contains('form-name')) {
-            //     if (!inputName.value.match(/[^а-яА-Я\-\s]/g)) {
-            //         success = false
-            //     }
-            // }
-        }
-
+        console.log(formElements);
+        formElements.forEach(inputName => {
+            if (inputName.classList.contains('form-name')) {
+                if (inputName.value.match(/[^а-яА-Я\-\s]/g)) {
+                    success = false
+                    // console.log('Данные не валидны')
+                }
+            }
+        })
+        formElements.forEach(inputPhone => {
+            if (inputPhone.classList.contains('form-phone')) {
+                if (inputPhone.value.match(/[^0-9\(\)\-]/g)) {
+                    success = false
+                    // console.log('Данные не валидны')
+                }
+            } 
+        })
+        formElements.forEach(inputUserMessage => {
+            if (inputUserMessage.classList.contains('mess')) {
+                if (inputUserMessage.value.match(/[^а-яА-Я\-\s]/g)) {
+                    success = false
+                    // console.log('Данные не валидны')
+                }
+            } 
+        })
+        
         // if (!inputPhone.value.match(/[^0-9\(\)\-]/g) 
         //     || !inputName.value.match(/[^а-яА-Я\-\s]/g) 
         //     || !inputUserMessage.value.match(/[^а-яА-Я\-\s]/g)) {
@@ -92,6 +98,7 @@ const sendForm = ({ formId, someElem = [] }) => {
             
         } else {
             alert('Данные не валидны')
+            statusBlock.textContent = errorText
         }
     }
 
